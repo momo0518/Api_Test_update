@@ -12,15 +12,11 @@ import string
 
 try:
     cfgfile = '/Users/fanglujie/Documents/Project/Api_Test/config.ini'
-    username = excuteCFG.ConfigRead(cfgfile, 'GET_TOKEN', 'username').CfgRead()
-    url = excuteCFG.ConfigRead(cfgfile, 'GET_TOKEN', 'url').CfgRead()
-    password = excuteCFG.ConfigRead(cfgfile, 'GET_TOKEN', 'password').CfgRead()
-    loginMode = excuteCFG.ConfigRead(cfgfile, 'GET_TOKEN', 'loginMode').CfgRead()
-    service = excuteCFG.ConfigRead(cfgfile, 'GET_TOKEN', 'service').CfgRead()
-    content_type = excuteCFG.ConfigRead(cfgfile, 'GET_TOKEN', 'content-type').CfgRead()
-    client_ip = excuteCFG.ConfigRead(cfgfile, 'GET_TOKEN', 'client_ip ').CfgRead()
-    header = {'Content-Type': content_type, 'client_ip': client_ip}
-    data = {'username': username, 'password': password, 'loginMode': loginMode, 'service': service}
+    client_id = excuteCFG.ConfigRead(cfgfile, 'GET_ACCESS_TOKEN', 'client_id').CfgRead()
+    client_secret = excuteCFG.ConfigRead(cfgfile, 'GET_ACCESS_TOKEN', 'client_secret').CfgRead()
+    grant_type = excuteCFG.ConfigRead(cfgfile, 'GET_ACCESS_TOKEN', 'grant_type').CfgRead()
+    data = {'client_id': client_id, 'client_secret': client_secret, 'grant_type': grant_type}
+
 except IOError, e:
     print '读取配置文件异常'
     #log.getErrorInfo('读取配置文件异常')
